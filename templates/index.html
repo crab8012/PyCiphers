@@ -2,10 +2,30 @@
     <head>
         <title>PyCipher</title>
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/navigation.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/forms.css') }}">
     </head>
     <body>
-        <a href="/caesar" class="button">Caesar Cipher</a>
-        <a href="/atbash" class="button">ATBash Cipher</a>
-        <a href="/enigma" class="button">Enigma</a>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/caesar">Caesar</a></li>
+            <li><a href="/atbash">Atbash</a></li>
+            <li style="float:right"><a class="active" href="#about">About</a></li>
+        </ul>
+
+        <h2>What is PyCipher?</h2>
+        <br>
+        <div class="readme">
+            PyCipher is a multifaceted python program that focuses on encoding and decoding information. It uses a combination
+            of the Python library Flask to serve web pages, handmade Python methods to handle encoding and decoding, HTML to
+            provide a user interface, and CSS to make that user interface look presentable.
+        </div>
+        <br>
+        <h2>What can PyCipher Do?</h2>
+        <br>
+        <div class="readme">
+            PyCipher can currently perform tasks with the Caesar and ATBash ciphers, information on which can be found <a href="http://practicalcryptography.com/ciphers/">HERE</a>
+        </div>
+
     </body>
 </html>

@@ -1,24 +1,8 @@
 body {
-    background-color: lightblue;
+    background-color: violet;
     align-content: center;
 }
 
-.button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  cursor: pointer;
-  font-size: 30px;
-  transition-duration: 0.4s;
+.readme {
+  font-size: 1.5em
 }
-.button:hover {
-  background-color: #bfc07a; /* Yellow */
-  color: white;
-}
-
-.button1 {font-size: 30px;}

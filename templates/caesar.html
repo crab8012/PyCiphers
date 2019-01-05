@@ -1,10 +1,19 @@
 <html>
     <head>
         <title>PyCipher</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/navigation.css') }}">
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/forms.css') }}">
     </head>
     <body>
-        <form action="{{ url_for('result') }}" method="post">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/caesar">Caesar</a></li>
+            <li><a href="/atbash">Atbash</a></li>
+            <li style="float:right"><a class="active" href="#about">About</a></li>
+        </ul>
+
+        <form action="{{ url_for('caesarresult') }}" method="post">
             <table>
                 <tr>
                     <th>String</th>
@@ -12,12 +21,12 @@
                 </tr>
                 <tr>
                     <th>Rotation</th>
-                    <th><input type="number" name="rotation" /></th>
+                    <th><input type="number" name="rotation" value="1" /></th>
                 </tr>
             </table>
             <input type="radio" name="mode" value="encode" checked="true" /> Encode
             <br>
-            <input type="radio" name="mode" value="encode" /> Decode
+            <input type="radio" name="mode" value="decode" /> Decode
             <br>
             <input type="submit" name="submit" class="button"/>
         </form>

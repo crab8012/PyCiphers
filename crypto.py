@@ -13,11 +13,14 @@ class Caesar():
         for x in string:
             newChar = None
             y = ord(x)
-            newOrd = y + rot
-            if(newOrd > 90 and newOrd < 97):
-                newOrd = (newOrd - 90) + 64
-            elif(newOrd > 122):
-                newOrd = (newOrd - 122) + 96
+            if (y > 64 and y < 91) or (y > 96 and y < 122):
+                newOrd = y + rot
+                if(newOrd > 90 and newOrd < 97):
+                    newOrd = (newOrd - 90) + 64
+                elif(newOrd > 122):
+                    newOrd = (newOrd - 122) + 96
+            else:
+                newOrd = y
 
             newChar = chr(newOrd)
             print(f"BeforeC: {x}, BeforeO: {y}, NewC: {newChar}, NewO: {newOrd}")
@@ -47,3 +50,28 @@ class Caesar():
             newString = newString + newChar
         return newString
 
+class ATBash():
+    keys = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwkyz"
+    values = "ZYXWVUTSRQPONMLKJIHGFEDCBAzykwvutsrqponmlkjihgfedcba"
+
+    @classmethod
+    def encode(cls, string):
+        newString = ""
+        for char in string:
+            location = cls.keys.find(char)
+            if(location == -1):
+                newString = newString + char
+            else:
+                newString = newString + cls.values[location]
+        return newString
+    
+    @classmethod
+    def decode(cls, string):
+        newString = ""
+        for char in string:
+            location = cls.values.find(char)
+            if(location == -1):
+                newString = newString + char
+            else:
+                newChar = cls.keys[location]
+        return newString

@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>PyCipher</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/navigation.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/forms.css') }}">
+    </head>
+    <body>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/caesar">Caesar</a></li>
+            <li><a href="/atbash">Atbash</a></li>
+            <li style="float:right"><a class="active" href="#about">About</a></li>
+        </ul>
+
+
+        <form action="{{ url_for('atbashresult') }}" method="post">
+            <table>
+                <tr>
+                    <th>String</th>
+                    <th></th>
+                    <th><input type="radio" name="mode" value="encode" checked="true" /> Encode</th>
+                </tr>
+                <tr>
+                    <th><input type="text" name="string" /></th>
+                    <th></th>
+                    <th><input type="radio" name="mode" value="encode" /> Decode</th>
+                    <th><input type="submit" name="submit" class="button" /></th>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

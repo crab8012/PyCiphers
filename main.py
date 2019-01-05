@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request
-from crypto import Caesar
+from crypto import Caesar, ATBash
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'key'
@@ -12,8 +12,8 @@ def index():
 def caesar():
     return render_template("caesar.html")
 
-@app.route("/result", methods=["POST"])
-def result():
+@app.route("/caesarresult", methods=["POST"])
+def caesarresult():
     string = request.form['string']
     rotation = request.form['rotation']
     mode = request.form['mode']
@@ -24,6 +24,18 @@ def result():
     else:
         newString = "ERROR: INVALID MODE."
     print(newString)
+    return render_template('result.html', text=newString)
+
+@app.route("/atbashresult", methods=["POST"])
+def atbashresult():
+    string = request.form['string']
+    mode = request.form['mode']
+    if(mode == 'decode'):
+        newString = ATBash.decode(string)
+    elif mode == 'encode':
+        newString = ATBash.encode(string)
+    else:
+        newString = "ERROR: INVALID MODE."
     return render_template('result.html', text=newString)
 
 
